@@ -1,4 +1,5 @@
 import { UserContextProvider } from '../src/contexts/user';
+
 // import type { AppProps } from 'next/app';
 // import GlobalStyles from '../src/global/styles';
 

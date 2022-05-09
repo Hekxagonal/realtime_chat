@@ -4,10 +4,11 @@ import Message from '../Message';
 import * as S from './styles';
 import test_data from '../../../api/test_data';
 import MessageInput from '../MessageInput';
+import { v4 as uuidv4 } from 'uuid';
 import { io } from 'socket.io-client';
 
 export interface ChatProps {
-  initialMessages: typeof test_data;
+  initialMessages?: typeof test_data;
 }
 
 const socket = io('http://localhost:8080');
@@ -16,9 +17,10 @@ socket.on('connection', () => {
   console.log('[IO] Connect => New Connection');
 });
 
-const Chat = ({ initialMessages }: ChatProps) => {
+const Chat = ({ initialMessages = [] }: ChatProps) => {
   const [inputValue, setInputValue] = useState('');
   const [messages, setMessages] = useState(initialMessages);
+  const [user] = useState(uuidv4());
 
   const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -26,7 +28,7 @@ const Chat = ({ initialMessages }: ChatProps) => {
       socket.emit('chat.message', {
         id: 1,
         message: inputValue.trim(),
-        user: 'user',
+        user: user,
       });
       setInputValue('');
     }
@@ -38,7 +40,7 @@ const Chat = ({ initialMessages }: ChatProps) => {
       message: string;
       user: string;
     }) => {
-      const isSender = 'user' === data.user;
+      const isSender = user === data.user;
       setMessages((old) => [
         ...old,
         { id: data.id, text: data.message, isSender },
