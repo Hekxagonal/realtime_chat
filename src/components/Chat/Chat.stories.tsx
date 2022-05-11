@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/react';
 import Component, { ChatProps } from '.';
-import test_data from '../../../api/test_data';
+import test_data from '../../../test/data';
 
 export default {
   title: 'Templates/Chat',

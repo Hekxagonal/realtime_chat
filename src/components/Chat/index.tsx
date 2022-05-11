@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import Message from '../Message';
 import * as S from './styles';
-import test_data from '../../../api/test_data';
+import test_data from '../../../test/data';
 import MessageInput from '../MessageInput';
 import { io } from 'socket.io-client';
 import { useSession } from 'next-auth/react';

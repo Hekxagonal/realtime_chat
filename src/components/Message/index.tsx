@@ -11,7 +11,7 @@ const Message = ({ children, isSender, user, createdAt }: MessageProps) => {
   return (
     <S.Container isSender={isSender}>
       <S.UserName>{user}</S.UserName>
-      {children}
+      <S.Content>{children}</S.Content>
       <S.CreatedAt>{new Date(createdAt).toLocaleTimeString()}</S.CreatedAt>
     </S.Container>
   );
