@@ -1,15 +1,10 @@
 import { getSession } from 'next-auth/react';
 import Chat from '../src/components/Chat';
-import test_data from '../test/data';
 
-interface HomeProps {
-  user: string;
-}
-
-export default function Home({ user }: HomeProps) {
+export default function Home() {
   return (
     <>
-      <Chat initialMessages={test_data} />
+      <Chat />
     </>
   );
 }
