@@ -39,7 +39,15 @@ export const Container = styled.div`
     }
 `;
 
-export const UserName = styled.span`
+export const UserName = styled.div`
+  color: #bfbfbf;
+  margin-left: 10px;
+  font-size: 12px;
+  align-self: flex-end;
+  margin-top: 5px;
+`;
+
+export const CreatedAt = styled.span`
   color: #bfbfbf;
   margin-left: 10px;
   font-size: 12px;

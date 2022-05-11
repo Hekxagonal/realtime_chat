@@ -21,7 +21,7 @@ socket.on('connection', () => {
 const Chat = ({ initialMessages = [] }: ChatProps) => {
   const [inputValue, setInputValue] = useState('');
   const [messages, setMessages] = useState(initialMessages);
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
   const [userId] = useState(session?.user?.name);
 
   useEffect(() => {
@@ -35,6 +35,7 @@ const Chat = ({ initialMessages = [] }: ChatProps) => {
         id: 1,
         message: inputValue.trim(),
         user: userId,
+        createdAt: new Date(),
       });
       setInputValue('');
     }
@@ -45,11 +46,18 @@ const Chat = ({ initialMessages = [] }: ChatProps) => {
       id: number;
       message: string;
       user: string;
+      createdAt: Date;
     }) => {
       const isSender = userId === data.user;
       setMessages((old) => [
         ...old,
-        { id: data.id, text: data.message, isSender, user: data.user },
+        {
+          id: data.id,
+          text: data.message,
+          isSender,
+          user: data.user,
+          createdAt: data.createdAt,
+        },
       ]);
     };
 
@@ -58,12 +66,17 @@ const Chat = ({ initialMessages = [] }: ChatProps) => {
     return () => {
       socket.off('chat.message', handleNewMessage);
     };
-  }, []);
+  }, [userId]);
 
   return (
     <S.Container>
       {messages.map((el, i) => (
-        <Message user={el.user} key={i} isSender={el.isSender}>
+        <Message
+          createdAt={el.createdAt}
+          user={el.user}
+          key={i}
+          isSender={el.isSender}
+        >
           {el.text}
         </Message>
       ))}

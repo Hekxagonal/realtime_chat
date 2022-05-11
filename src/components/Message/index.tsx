@@ -4,13 +4,15 @@ export interface MessageProps {
   children: string;
   isSender: boolean;
   user?: string;
+  createdAt: Date;
 }
 
-const Message = ({ children, isSender, user }: MessageProps) => {
+const Message = ({ children, isSender, user, createdAt }: MessageProps) => {
   return (
     <S.Container isSender={isSender}>
-      {children}
       <S.UserName>{user}</S.UserName>
+      {children}
+      <S.CreatedAt>{new Date(createdAt).toLocaleTimeString()}</S.CreatedAt>
     </S.Container>
   );
 };
