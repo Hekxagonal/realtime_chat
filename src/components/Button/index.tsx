@@ -2,11 +2,11 @@ import * as S from './styles';
 
 export interface iComponent {
   children: string;
-  onClick?: (event: MouseEvent) => void;
+  onClick?: (event: any) => void;
 }
 
-const Button = ({ children }: iComponent) => {
-  return <S.Button>{children}</S.Button>;
+const Button = ({ children, onClick }: iComponent) => {
+  return <S.Button onClick={onClick}>{children}</S.Button>;
 };
 
 export default Button;

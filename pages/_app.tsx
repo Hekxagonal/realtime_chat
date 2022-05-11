@@ -1,13 +1,13 @@
-import { UserContextProvider } from '../src/contexts/user';
+import { SessionProvider } from 'next-auth/react';
 
 // import type { AppProps } from 'next/app';
 // import GlobalStyles from '../src/global/styles';
 
-function MyApp({ Component, pageProps }: any) {
+function MyApp({ Component, pageProps: { session, ...pageProps } }: any) {
   return (
-    <UserContextProvider>
+    <SessionProvider session={session}>
       <Component {...pageProps} />
-    </UserContextProvider>
+    </SessionProvider>
   );
 }
 
