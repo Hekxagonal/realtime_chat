@@ -1,30 +1,28 @@
-# TypeScript & Styled Components Next.js example
+# Chat em Tempo Real
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![ReactJS](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![NextJS](https://img.shields.io/badge/-NextJS-black?style=for-the-badge&logo=nextdotjs)
+![StyledComponents](https://img.shields.io/badge/-StyledComponents-760a8a?style=for-the-badge&logo=styledcomponents&logoColor=white)
+![StoryBook](https://img.shields.io/badge/-Storybook-FF4785?style=for-the-badge&logo=storybook&logoColor=white)
+![Socket.io](https://img.shields.io/badge/-Socket.io-010101?style=for-the-badge&logo=socket.io&logoColor=white)
+![Node.JS](https://img.shields.io/badge/-Node.JS-339933?style=for-the-badge&logo=node.js&logoColor=white)
+![Koa](https://img.shields.io/badge/-Koa-33333D?style=for-the-badge&logo=koa&logoColor=white)
 
-This is a really simple project that show the usage of Next.js with TypeScript and Styled Components.
+## Para Testar:
+`yarn dev`
+Este comando iniciará o Servidor do Next na Porta 3000
 
-## Deploy your own
+`yarn server`
+Este comando iniciará o Servidor Socket.io na porta 8080
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-typescript-styled-components)
+Depois de ter executado os dois comandos em Terminais diferentes, abra a pagina em dois navegadores diferentes. Para usar com outros dispositivos será necessário definir um IP no lugar de 'localhost'
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-typescript-styled-components&project-name=with-typescript-styled-components&repository-name=with-typescript-styled-components)
+### Funções implementadas:
+- Scroll Automático
+- Autenticação Simples
+- Hora das Mensagens
+- Estilo baseado no Whatsapp Dark
 
-## How to use it?
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
-
-```bash
-npx create-next-app --example with-typescript-styled-components with-typescript-styled-components-app
-# or
-yarn create next-app --example with-typescript-styled-components with-typescript-styled-components-app
-# or
-pnpm create next-app -- --example with-typescript-styled-components with-typescript-styled-components-app
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
-
-## Notes
-
-This is an amalgamation of the 2 existing examples:
-
-- [with-typescript](https://github.com/vercel/next.js/tree/canary/examples/with-typescript)
-- [with-styled-components](https://github.com/vercel/next.js/tree/canary/examples/with-styled-components)
+### Ainda incompletas:
+- Storybook
+- Testes com Jest
