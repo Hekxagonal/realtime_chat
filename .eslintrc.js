@@ -3,6 +3,7 @@ module.exports = {
     browser: true,
     es2021: true,
     jest: true,
+    node: true,
   },
   extends: [
     'eslint:recommended',
@@ -34,5 +35,6 @@ module.exports = {
     indent: ['off'],
     '@typescript-eslint/rule-name': 'off',
     '@typescript-eslint/no-explicit-any': 'warn',
+    '@typescript-eslint/no-var-requires': 'off',
   },
 };

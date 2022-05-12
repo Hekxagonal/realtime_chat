@@ -2,7 +2,7 @@ import * as S from './styles';
 
 export interface MessageInputProps {
   inputValue: string;
-  onInputChange: (event: React.FormEvent<HTMLInputElement>) => void;
+  onInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onFormSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
 }
 

@@ -1,6 +1,8 @@
-import Koa from 'koa';
-import http from 'http';
-import { Server } from 'socket.io';
+const dotenv = require('dotenv');
+dotenv.config();
+const Koa = require('koa');
+const http = require('http');
+const { Server } = require('socket.io');
 
 const app = new Koa();
 const server = http.createServer(app.callback());
@@ -27,7 +29,7 @@ io.on('connection', (socket) => {
   //socket.emit('session', { userId: socket.userId, username: socket.username });
 
   socket.on('chat.message', (data) => {
-    console.log(`[SOCKET] Chat.Message => ${data.user} / ${data.message}`);
+    console.log(`[SOCKET] Chat.Message => ${data.message} (by ${data.user})`);
     io.emit('chat.message', data);
   });
 
@@ -36,13 +38,7 @@ io.on('connection', (socket) => {
   });
 });
 
-server.listen(
-  process.env.NEXT_PUBLIC_SERVER_PORT,
-  process.env.NEXT_PUBLIC_SERVER_HOST,
-  () => {
-    console.log(
-      `[HTTP] Listen => Server is running at ${process.env.SERVER_HOST}:${process.env.SERVER_PORT}`,
-    );
-    console.log(`[HTTP] Listen => Press CTRL + C to stop the server`);
-  },
-);
+server.listen(8080, 'localhost', () => {
+  console.log(`[HTTP] Listen => Server is running at ${8080}:${'localhost'}`);
+  console.log(`[HTTP] Listen => Press CTRL + C to stop the server`);
+});

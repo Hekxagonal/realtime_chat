@@ -24,10 +24,6 @@ const Chat = ({ initialMessages = [] }: ChatProps) => {
   const { data: session } = useSession();
   const [userId] = useState(session?.user?.name);
 
-  useEffect(() => {
-    console.log(userId);
-  }, [userId]);
-
   const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (inputValue.trim()) {
@@ -40,6 +36,10 @@ const Chat = ({ initialMessages = [] }: ChatProps) => {
       setInputValue('');
     }
   };
+
+  useEffect(() => {
+    window.scroll(0, document.body.scrollHeight);
+  }, [messages]);
 
   useEffect(() => {
     const handleNewMessage = (data: {
