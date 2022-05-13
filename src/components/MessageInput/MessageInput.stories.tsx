@@ -10,7 +10,15 @@ export default {
     onFormSubmit: () => console.log('submitted'),
   },
   argTypes: {
-    inputValue: { type: 'string' },
+    inputValue: { type: 'string', description: 'the value of input' },
+    onInputChange: {
+      type: 'function',
+      description: 'this function is called when the value changes',
+    },
+    onFormSubmit: {
+      type: 'function',
+      description: 'this function is called when the form submit',
+    },
   },
 } as Meta;
 

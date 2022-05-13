@@ -1,5 +1,6 @@
 import { Meta } from '@storybook/react';
 import Component, { MessageProps } from '.';
+import * as ChatStyles from '../Chat/styles';
 
 export default {
   title: 'Simple Components/Message',
@@ -7,6 +8,8 @@ export default {
   args: {
     children: 'A sended message example',
     isSender: true,
+    user: 'user example',
+    createdAt: new Date(),
   },
   argTypes: {
     children: { type: 'string' },
@@ -14,9 +17,17 @@ export default {
   },
 } as Meta;
 
-export const MessageSended = (args: MessageProps) => <Component {...args} />;
+export const MessageSended = (args: MessageProps) => (
+  <ChatStyles.Container>
+    <Component {...args} />
+  </ChatStyles.Container>
+);
 
-export const MessageReceived = (args: MessageProps) => <Component {...args} />;
+export const MessageReceived = (args: MessageProps) => (
+  <ChatStyles.Container>
+    <Component {...args} />
+  </ChatStyles.Container>
+);
 
 MessageReceived.args = {
   isSender: false,

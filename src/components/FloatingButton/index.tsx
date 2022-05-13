@@ -1,6 +1,6 @@
 import * as S from './styles';
 
-interface FloatingButtonProps {
+export interface FloatingButtonProps {
   onClick: () => void;
 }
 
